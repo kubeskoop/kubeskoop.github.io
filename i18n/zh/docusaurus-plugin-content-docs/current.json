@@ -1,0 +1,66 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial - Basics": {
+    "message": "Tutorial - Basics",
+    "description": "The label for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial - Basics.link.generated-index.description": {
+    "message": "5 minutes to learn the most important Docusaurus concepts.",
+    "description": "The generated-index page description for category Tutorial - Basics in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial - Extras": {
+    "message": "Tutorial - Extras",
+    "description": "The label for category Tutorial - Extras in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial": {
+    "message": "入门",
+    "description": "The label for category Tutorial in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Tutorial.link.generated-index.description": {
+    "message": "如何使用KubeSkoop诊断Kubernetes网络问题",
+    "description": "The generated-index page description for category Tutorial in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contribute": {
+    "message": "开发指南",
+    "description": "The label for category Contribute in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contribute.link.generated-index.description": {
+    "message": "extend kubeskoop ",
+    "description": "The generated-index page description for category Contribute in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Guide": {
+    "message": "文档",
+    "description": "The label for category Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Guide.link.generated-index.description": {
+    "message": "How to diagnose your kubernetes cluster networking",
+    "description": "The generated-index page description for category Guide in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Connectivity diagnose": {
+    "message": "连通性诊断",
+    "description": "The label for category Connectivity diagnose in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Connectivity diagnose.link.generated-index.description": {
+    "message": "一键网络问题诊断。",
+    "description": "The generated-index page description for category Connectivity diagnose in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system monitoring": {
+    "message": "system monitoring",
+    "description": "The label for category system monitoring in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.system monitoring.link.generated-index.description": {
+    "message": "system monitoring via metrics and event logs.",
+    "description": "The generated-index page description for category system monitoring in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System monitoring": {
+    "message": "深度网络监控",
+    "description": "The label for category System monitoring in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.System monitoring.link.generated-index.description": {
+    "message": "system monitoring via metrics and event logs.",
+    "description": "The generated-index page description for category System monitoring in sidebar tutorialSidebar"
+  }
+}

@@ -1,0 +1,43 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.intro {
+    padding: 3rem;
+    border-bottom: 1px solid var(--docusaurus-highlighted-code-line-bg);
+}
+
+.introLeftCol {
+    width: 70%;
+}
+
+.introRightCol {
+    padding: 3rem;
+    align-items: center;
+    width: 30%;
+}
+
+@counter-style ul-emoji {
+    system: cyclic;
+    symbols: "✔️";
+    suffix: " ";
+}
+
+.featUL {
+    list-style: ul-emoji;
+}
+
+.featureImage {
+    padding: 2rem;
+    margin-bottom: 3rem;
+    height: 150px;
+    width: auto;
+}
+
+.featureImage>img {
+  height: auto;
+  width: 200px;
+}

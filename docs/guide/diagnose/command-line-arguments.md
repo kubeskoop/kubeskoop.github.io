@@ -24,4 +24,4 @@ The following command line arguments are provided by kubeskoop cli.
 | `--http-address`                | listen address for http server. (default `127.0.0.1:8080`)                                         |
 | `--aliyun-access-key-id`        | access key for aliyun provider                                                                     |
 | `--aliyun-access-key-secret`    | access secret for aliyun provider                                                                  |
-| `--aliyun-security-token`       | security token for aliyun provider                                                                 |
+| `--aliyun-security-token`       | （optional)security token for aliyun provider                                                                 |

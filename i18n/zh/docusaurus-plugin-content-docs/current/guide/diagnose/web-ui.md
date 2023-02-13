@@ -6,7 +6,7 @@ sidebar_position: 5
 
 使用Web UI交互式查看诊断结果。
 
-KubeSkoop连通性诊断提供了Web UI，交互式地查看诊断结果。在诊断是加入`--http`参数，启用Web UI。在诊断完成后，会在指定地址上启动HTTP服务器接受请求。可以通过`--http-address`参数指定地址，默认为`127.0.0.1:8080`。
+KubeSkoop连通性诊断提供了Web UI，交互式地查看诊断结果。在诊断时加入`--http`参数，启用Web UI。在诊断完成后，会在指定地址上启动HTTP服务器接受请求。可以通过`--http-address`参数指定地址，默认为`127.0.0.1:8080`。
 
 ```shell
 $ kubeskoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # 执行诊断命令，指定来源目的，通过--http来让诊断结果通过本地web服务提供

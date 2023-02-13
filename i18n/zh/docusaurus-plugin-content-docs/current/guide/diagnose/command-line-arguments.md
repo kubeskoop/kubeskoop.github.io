@@ -24,4 +24,4 @@ sidebar_position: 99
 | `--http-address`                | HTTP服务器监听地址(默认`127.0.0.1:8080`)                                                     |
 | `--aliyun-access-key-id`        | 阿里云access key                                                                       |
 | `--aliyun-access-key-secret`    | 阿里云access secret                                                                    |
-| `--aliyun-security-token`       | 阿里云security token                                                                   |
+| `--aliyun-security-token`       | (可选)阿里云security token                                                                   |

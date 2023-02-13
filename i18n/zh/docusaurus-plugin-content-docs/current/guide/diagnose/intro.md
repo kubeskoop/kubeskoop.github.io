@@ -8,6 +8,20 @@ KubeSkoop连通性诊断功能简介。
 
 KubeSkoop连通性检查提供了对于持续性网络问题的一键诊断功能。它能够诊断Kubernetes集群中各种网络访问方式和链路(如**Pod,Service,Node,Ingress/Egress流量**)，覆盖完整的Linux协议栈的配置错误场景(如**Socket,Bridge,Veth,Netfilter,Egress**)，同时也支持诊断多种云供应商的IaaS层网络错误配置。
 
+## 快速开始
+### 诊断命令安装
+通过go install来安装KubeSkoop的诊断客户端：
+```
+go install github.com/alibaba/kubeskoop/cmd/kubeskoop
+```
+
+### 一键诊断
+```shell
+$ kubeskoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # 执行诊断命令，指定来源目的，通过--http来让诊断结果通过本地web服务提供
+I0118 11:43:23.383446    6280 web.go:97] HTTP server listening on http://127.0.0.1:8080 # 诊断完成会输出诊断结果链接
+```
+
+之后，通过浏览器打开`http://127.0.0.1:8080`查看诊断结果。
 
 ## 工作原理
 

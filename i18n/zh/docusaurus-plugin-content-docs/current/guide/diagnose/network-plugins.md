@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# 网络插件
+# 支持的网络插件
 
 KubeSkoop连通性诊断目前支持以下网络插件。
 

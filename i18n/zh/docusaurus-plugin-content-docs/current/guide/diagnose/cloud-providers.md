@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# 云供应商
+# 指定云供应商
 
 KubeSkoop支持在诊断时指定云供应商。
 

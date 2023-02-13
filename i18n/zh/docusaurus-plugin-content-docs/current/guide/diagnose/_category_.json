@@ -1,8 +1,0 @@
-{
-  "label": "连通性诊断",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "一键诊断网络连通性问题."
-  }
-}

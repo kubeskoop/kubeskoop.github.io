@@ -39,7 +39,7 @@
     "message": "How to diagnose your kubernetes cluster networking",
     "description": "The generated-index page description for category Guide in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Connectivity diagnose": {
+  "sidebar.tutorialSidebar.category.Connectivity diagnosis": {
     "message": "连通性诊断",
     "description": "The label for category Connectivity diagnose in sidebar tutorialSidebar"
   },

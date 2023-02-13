@@ -2,11 +2,11 @@
 sidebar_position: 3
 ---
 
-# Cloud Providers
+# Specifying Cloud Provider
 
 Cloud provider can be specified via `--cloud-provider` argument before execution of KubeSkoop diagnose.
 
-After setting cloud provider of the cluster, connectivity diagnose will your configuration on the cloud, like VM security group, route tables, NAT, etc.
+After setting cloud provider of the cluster, connectivity diagnosis will your configuration on the cloud, like VM security group, route tables, NAT, etc.
 
 # Aliyun(Alibaba Cloud)
 

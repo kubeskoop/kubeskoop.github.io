@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Intro
 
-Here is introduction for KubeSkoop connectivity diagnose and exporter.
+Here is introduction for KubeSkoop connectivity diagnosis and exporter.
 
-## Connectivity diagnose
+## Connectivity diagnosis 
 
 
 ## Monitoring

@@ -6,7 +6,7 @@ sidebar_position: 1
 ## 总览
 ![overview](/img/kubeskoop_features.png)
 KubeSkoop 是一个Kubernetes网络诊断工具.
-针对不同的网络插件和IAAS提供商自动构建Kubernetes集群中Pod的网络访问图，结合eBPF对内核关键路径的深度监控和分析，来分析常见的Kubernetes集群网络问题。
+针对不同的网络插件和IaaS提供商自动构建Kubernetes集群中Pod的网络访问图，结合eBPF对内核关键路径的深度监控和分析，来分析常见的Kubernetes集群网络问题。
 显著地简化了Kubernetes网络问题的诊断难度。
 
 ## 关键特性

@@ -2,7 +2,7 @@
 sidebar_position: 99
 ---
 
-# Command line arguments
+# Command Line Arguments
 
 The following command line arguments are provided by kubeskoop cli.
 

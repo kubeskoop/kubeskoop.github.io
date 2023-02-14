@@ -12,7 +12,7 @@ KubeSkoop连通性检查提供了对于持续性网络问题的一键诊断功�
 ### 诊断命令安装
 通过go install来安装KubeSkoop的诊断客户端：
 ```
-go install github.com/alibaba/kubeskoop/cmd/skoop
+go install github.com/alibaba/kubeskoop/cmd/skoop@latest
 ```
 
 ### 一键诊断

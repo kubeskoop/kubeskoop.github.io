@@ -22,12 +22,12 @@ sidebar_position: 2
 ### 诊断命令安装
 通过go install来安装KubeSkoop的诊断客户端：
 ```
-go install github.com/alibaba/kubeskoop/cmd/kubeskoop
+go install github.com/alibaba/kubeskoop/cmd/skoop
 ```
 
 ### 一键诊断
 ```shell
-$ kubeskoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # 执行诊断命令，指定来源目的，通过--http来让诊断结果通过本地web服务提供
+$ skoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # 执行诊断命令，指定来源目的，通过--http来让诊断结果通过本地web服务提供
 I0118 11:43:23.383446    6280 web.go:97] HTTP server listening on http://127.0.0.1:8080 # 诊断完成会输出诊断结果链接
 ```
 通过浏览器打来`http://127.0.0.1:8080`后可以看到诊断结果：

@@ -25,7 +25,7 @@ KubeSkoop exporter支持运行在kubernetes中的prometheus的服务发现功能
 ![grafana-prometheus-datasource](/img/datasource-prometheus.png)
 2. 新建一个大盘，或者在已有大盘中选择新建一个面板，在面板的配置中选取数据源为**1**中配置的数据源，并在Metric browser中输入`inspector`，即可看到联想后的KubeSkoop exporter指标，选取其中需要的信息，以`inspector_pod_netdevrxbytes`为例，输入完成后，可以在面板中看到获取到的数据。
 ![grafana-prometheus-panel](/img/panel-prometheus.png)
-3. 在指标的可视化中，可以根据需要设置指标的图例和单位等信息，其中，图例支持配置Pod的Namepace，ip，label等信息，在面板的**Legend**中可以配置这些支持的图例。
+3. 在指标的可视化中，可以根据需要设置指标的图例和单位等信息，其中，图例支持配置Pod的Namespace，ip，label等信息，在面板的**Legend**中可以配置这些支持的图例。
 
 ### 导入预定义默认大盘
 
@@ -51,7 +51,7 @@ curl https://raw.githubusercontent.com/alibaba/kubeskoop/main/deploy/resource/ku
 curl http://[Grafana Loki实例的地址]:3100/ready
 ```
 
-### 配置kubeskoopp exporter事件流
+### 配置KubeSkoop exporter事件流
 
 #### 通过Grafana
 

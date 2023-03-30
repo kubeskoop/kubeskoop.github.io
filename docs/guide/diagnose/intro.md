@@ -21,13 +21,13 @@ go install github.com/alibaba/kubeskoop/cmd/skoop@latest
 $ skoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # Execute the diagnostic command, specify the src,dst, and use --http to provide the diagnostic result through the local web service
 I0118 11:43:23.383446    6280 web.go:97] HTTP server listening on http://127.0.0.1:8080 # After the diagnosis is completed, a link to the diagnosis result will be output
 ```
-And then, you can open `http://127.0.0.1:8080` to view the dianosis result through browser.
+And then, you can open `http://127.0.0.1:8080` to view the diagnosis result through browser.
 
 ## How it works
 
 When run KubeSkoop connectivity diagnosis, it generates traffic graph from source address to destination address by the network plugin and cloud provider of your cluster. Then, it collects network stack information (iptables rules, network device info, sysctls, etc.) on nodes.
 
-When build traffic links, it will evaluate links and edges in the graph to check whether it works as expceted. If not, it will be consiered as a misconfiguration.
+When build traffic links, it will evaluate links and edges in the graph to check whether it works as expected. If not, it will be considered as a misconfiguration.
 
 ## Limitations
 

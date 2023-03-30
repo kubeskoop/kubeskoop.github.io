@@ -68,7 +68,7 @@ git clone https://github.com/alibaba/kubeskoop.git
 helm install --set namespace=kube-system skoop-exporter ./kubeskoop/deploy/skoop-exporter-0.1.0.tgz --debug
 ```
 
-Skoop-exporter以DeamonSet方式部署在集群中，可以通过以下方式验证是否正常工作：
+Skoop-exporter以DaemonSet方式部署在集群中，可以通过以下方式验证是否正常工作：
 
 ```shell
 # 查看Skoop exporter的运行状态

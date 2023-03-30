@@ -10,7 +10,7 @@ By default, when diagnosis finished, it will print simple link info and diagnose
 
 ## Web UI
 
-Web UI are provided to view diagnosis result interactivity, by adding `--http` argument to enable it. When diagnosis finished, it will start an HTTP server on the specifed address, by using `--http-address` argument. Default value of `--http-address` is `127.0.0.1:8080`.
+Web UI are provided to view diagnosis result interactivity, by adding `--http` argument to enable it. When diagnosis finished, it will start an HTTP server on the specified address, by using `--http-address` argument. Default value of `--http-address` is `127.0.0.1:8080`.
 
 ```shell
 $ skoop -s 172.18.0.4 -d 10.96.0.10 -p 53 --http # Execute the diagnostic command, specify the src,dst, and use --http to provide the diagnostic result through the local web service

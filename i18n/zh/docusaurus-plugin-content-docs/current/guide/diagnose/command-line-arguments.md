@@ -12,7 +12,7 @@ sidebar_position: 99
 | `-d, --dst string`                       | 网络诊断的目的地址                                                                         |
 | `--protocol string`                      | 网络诊断的协议（默认`tcp`）                                                                  |
 | `-s, --src string`                       | 网络诊断的源地址                                                                          |
-| `--cloud-provider string`                | 云厂商名称（默认`generic`）                                                                |
+| `--cloud-provider string`                | 云提供商名称（默认`generic`）                                                                |
 | `--cluster-cidr string`                  | 集群Pod CIDR。若没有指定，将会尝试自动探测。                                                        |
 | `--kube-config string`                   | 集群kubeconfig路径（默认`~/.kube/config`）                                                |
 | `--network-plugin string`                | 集群网络插件。若没有指定，将会尝试自动探测                                                             |

@@ -4,7 +4,7 @@
 
 ```shell
 # 添加skoop charts repo
-helm repo add kubeskoop https://github.com/alibaba/kubeskoop/charts
+helm repo add kubeskoop https://kubeskoop.github.io/
 
 # 首次执行时，需要更新helm repo缓存
 helm repo update
@@ -20,7 +20,7 @@ helm install kubeskoop-exporter kubeskoop/kubeskoop-exporter
 git clone https://github.com/alibaba/kubeskoop.git
 
 # 进行本地安装
-helm install --set namespace=kube-system kubeskoop-exporter ./kubeskoop/deploy/kubeskoop-exporter-0.1.0.tgz --debug
+helm install --set namespace=kubeskoop kubeskoop-exporter ./kubeskoop/deploy/kubeskoop-exporter-0.1.0.tgz --debug
 ```
 
 kubeskoop-exporter以DeamonSet方式部署在集群中，可以通过以下方式验证是否正常工作：

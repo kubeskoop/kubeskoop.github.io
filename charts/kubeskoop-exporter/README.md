@@ -1,22 +1,22 @@
-# Skoop exporter
+# KubeSkoop exporter
 
 ## INSTALL
 
 ```shell
-# 添加skoop charts repo
+# 添加kubeskoop charts repo
 helm repo add kubeskoop https://kubeskoop.github.io/
 
 # 首次执行时，需要更新helm repo缓存
 helm repo update
 
-# 安装skoop exporter
+# 安装kubeskoop exporter
 helm install kubeskoop-exporter kubeskoop/kubeskoop-exporter
 ```
 
 如果需要调试Helm Charts信息，可以通过本地安装：
 
 ```shell
-# 获取skoop exporter代码仓库
+# 获取kubeskoop exporter代码仓库
 git clone https://github.com/alibaba/kubeskoop.git
 
 # 进行本地安装
@@ -26,13 +26,13 @@ helm install --set namespace=kubeskoop kubeskoop-exporter ./kubeskoop/deploy/kub
 kubeskoop-exporter以DeamonSet方式部署在集群中，可以通过以下方式验证是否正常工作：
 
 ```shell
-# 查看Skoop exporter的运行状态
+# 查看kubeskoop exporter的运行状态
 kubectl get pod -n kubeskoop -l app=kubeskoop-exporter -o wide
 
 # 获取到pod的信息后，可以通过apiserver查看Probe采集探针的运行状态
 kubectl get --raw /api/v1/namespaces/{{kubeskoop-exporter的pod namespace}}/pods/{{kubeskoop-exporter的pod name}}:9102/proxy/status |jq .
 
-# 如果可以直接访问kubeskoop-exporter实例，也可以直接查看Probe的运行状态
+# 如果可以直接访问kubeskoop exporter实例，也可以直接查看Probe的运行状态
 curl {{kubeskoop-exporter的pod ip}}:9102/status |jq .
 ```
 

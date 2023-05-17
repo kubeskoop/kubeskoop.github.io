@@ -57,6 +57,24 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Get latest tag
+        run: |
+          TAG=$(git fetch --tags && git tag --sort=-v:refname | grep -E '^kubeskoop-exporter-' | head -n 1)
+          if [[ -n "$TAG" ]]; then
+            PREFIX="kubeskoop-exporter-"
+            VERSION=${TAG#$PREFIX}
+            echo "latest tag:$TAG,version:$VERSION"
+            echo "VERSION=$VERSION" >> $GITHUB_ENV
+          else
+            echo "没有找到符合要求的tag"
+          fi
+
+      - uses: dev-drprasad/delete-tag-and-release@v1.0
+        with:
+         tag_name: ${{ env.VERSION }}
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         delete_release: true #(optional) default: true 
+
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.5.0
         env:

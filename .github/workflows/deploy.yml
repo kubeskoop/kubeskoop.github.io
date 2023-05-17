@@ -65,13 +65,14 @@ jobs:
             VERSION=${TAG#$PREFIX}
             echo "latest tag:$TAG,version:$VERSION"
             echo "VERSION=$VERSION" >> $GITHUB_ENV
+            echo "RELEASE_TAG=$TAG" >> $GITHUB_ENV
           else
             echo "没有找到符合要求的tag"
           fi
 
       - uses: dev-drprasad/delete-tag-and-release@v1.0
         with:
-         tag_name: ${{ env.VERSION }}
+         tag_name: ${{ env.RELEASE_TAG }}
          github_token: ${{ secrets.GITHUB_TOKEN }}
          delete_release: true #(optional) default: true 
 

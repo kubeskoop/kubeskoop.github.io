@@ -1,49 +1,47 @@
-# KubeSkoop exporter 功能简介
+# KubeSkoop exporter
 
-## 概述
+## Overview
 
-KubeSkoop exporter是面向Kubernetes云原生环境的网络监控工具，可以提供以下功能：
+KubeSkoop exporter is a network monitoring tool designed for Kubernetes cloud native environments, which can provide the following functions:
 
-* 针对Pod级别的网络监控，包括流量，应用层连接信息，socket内存分配状态等
-* 针对Pod级别的网络异常状态的指标监控，例如Pod内进程对socket进行读写操作的等待时间超过100ms的次数，Pod发出TCP rst报文的次数等
-* 针对Pod级别的网络异常事件的现场，提供事件发生的详细信息的观测，例如内核网络软中断调度等待过久，UDP出现socket内存不足导致的溢出等
+* Pod-level network monitoring, including traffic, application layer connection information, socket memory allocation status, and more.
+* Metrics monitoring for network abnormal states at the Pod level, such as the number of times a Pod's process waits for more than 100ms to read or write to a socket, the number of times a Pod issues TCP RST packets, and so on.
+* At the Pod level, provide on-site observation of network abnormal events and detailed information on the occurrence of events, such as the kernel network soft interrupt scheduling waiting too long, UDP overflow caused by socket memory shortage, and more.
 
-与常见的Kubernetes监控和可观测性工具的主要区别如下：
+The main differences from common Kubernetes monitoring and observability tools are as follows:"：
 
-| 功能选项          | Prometheus Node exporter     | cAdvisor/Metric API   | KubeSkoop exporter|
+| Functions          | Prometheus Node exporter     | cAdvisor/Metric API   | KubeSkoop exporter|
 |------------------|------------------------------|-----------------------|-------------------|
-|  按照Pod区分      | No                            | Yes                   | Yes               |
-|  网络状态监控      | Yes                          | No                    |Yes                |
-|  异常事件的现场捕获 | No                           | No                    | Yes               |
-|  内核网络高阶信息   | No                           | Yes                   | Yes               |
+| By Pod differentiation      | No                            | Yes                   | Yes               |
+|  Network status monitoring      | Yes                          | No                    |Yes                |
+|  On-site capture of abnormal events | No                           | No                    | Yes               |
+|  Advanced kernel network information   | No                           | Yes                   | Yes               |
 
-## 核心原理
+## Introduction
 
-### 架构
+### Architecture
 
 ![kubeskoop-exporter-structure](/img/kubeskoop-arch.png)
 
-### 信息采集
+### Information gathering
 
-KubeSkoop exporter提供了适配于Kubernetes网络监控功能，在节点上，KubeSkoop exporter采集并归类了网络相关的大量数据，实现这些功能的核心原理包括:
+KubeSkoop exporter provides adaptation for Kubernetes network monitoring function. On the nodes, KubeSkoop exporter collects and categorizes a large amount of network-related data. The core principle behind these functions includes:
 
-* 通过CRI接口和`Linux /proc/`获取节点内的网络隔离状态及其与Pod的关联信息
-* 通过`Linux /proc/`，`Linux netlink`和eBPF获取网络监控信息
-* 通过eBPF获取操作系统内核在网络异常事件发生时的上下文状态
+* Obtaining the network isolation status within the node and its association with Pods through the CRI interface and Linux /proc/.
+* Obtaining network monitoring information through Linux /proc/, Linux netlink, and eBPF.
+* Obtaining the contextual state of the operating system kernel during network anomaly events through eBPF.
 
-### 聚合分析
+### Aggregated analysis
 
-KubeSkoop exporter采集的数据可以通过多种方式获取，包括:
+* Scraping monitoring information through Prometheus and visualizing it using Grafana.
+* Configuring Grafana Loki to receive event push from KubeSkoop exporter and visualizing it using Grafana.
+* Using the KubeSkoop inspector command-line tool to observe monitoring information.
 
-* 通过Prometheus获取监控信息，并使用Grafana进行可视化操作
-* 通过配置Grafana Loki接收KubeSkoop exporter的事件推送，并使用Grafana进行可视化操作
-* 使用kubeskoop inspector命令行工具观察监控信息
+Regarding how to visualize monitoring data, please refer to**[KubeSkoop exporter visualization](exporter-visualization-guide.md)**
 
-关于如何将监控数据进行可视化，请参考**[KubeSkoop exporter 可视化配置](exporter-visualization-guide.md)**
+## Metrics
 
-## 指标信息
-
-KubeSkoop exporter 提供Pod级别的指标信息来反应实例运行过程中的环境变化，指标按照来源和用户，分类到不同的探针他们的相关信息如下:
+KubeSkoop exporter provides Pod-level metric information to reflect environmental changes during instance operation. Metrics are classified into different probes according to their source and user, and their related information is as follows:
 
 Name     | Description | Granularity | Datasource
 ---------|-------------|-------------|-----------
@@ -62,17 +60,17 @@ virtcmdlatency | Virtio-net command processing latency statistic | node | eBPF
 kernellatency | Latency statistics of processing network packet in kernel stack | pod | eBPF
 netiftxlat | Network interfaces tc qdisc processing latency statistic | pod | eBPF
 packetloss | Statistics of packet dropping in kernel stack processing | pod | eBPF
-## 网络异常事件信息
+## Events
 
-KubeSkoop exporter 提供节点上发生的网络相关的异常事件，根据在长期处理网络问题中的经验，我们归纳了几种常见的网络疑难问题，他们往往在集群中以无法复现，偶然发生的方式干扰正常的业务，缺乏有效的定位手段，其中部分如下：
+KubeSkoop exporter provides network-related abnormal events occurring on the nodes. Based on our experience in handling network issues in the long-term, we have summarized several common network troubleshooting problems. They often interfere with normal business operations in the cluster in an unpredictable and occasional manner, lacking effective localization methods. Some of them are as follows:
 
-1. 网络数据报文被丢弃引发的连接失败，响应超时等问题。
-2. 网络数据处理耗时久引发的偶发性能问题。
-3. TCP，conntrack等状态机制异常引发的业务异常问题。
+1. Connection failure, response timeout, and other issues caused by discarded network packets.
+2. Occasional performance issues caused by longer processing time for network data.
+3. Task abnormality issues caused by TCP, conntrack, and other stateful abnormalities.
 
-针对无法快速复现和难以获取现场的网络问题，KubeSkoop exporter提供了基于eBPF的操作系统内核上下文观测能力，在问题发生的现场捕获操作系统的实时状态，以事件日志的方式输出。
+For network issues that are difficult to quickly reproduce and obtain on-site, KubeSkoop exporter provides eBPF-based operating system kernel context observation capabilities to capture the real-time state of the operating system at the scene of the problem and output it in the form of event logs.
 
-KubeSkoop exporter 内置支持的事件如下：
+The events supported by KubeSkoop exporter are as follows:
 
 Name     | Description
 ---------|-------------
@@ -84,19 +82,20 @@ kernellatency | Expose netfilter/route delay in kernel
 virtcmdlatency | Expose high latency virtio-net command processing
 tcpreset | Expose receiving/sending tcp segments with RST flag
 
-在事件日志的信息中，可以查看到事件现场的相关信息，以**tcp_reset**探针为例，当出现有Pod收到了一个访问为止端口的正常报文时，KubeSkoop exporter会捕获以下事件信息:
+In the information of the event log, relevant information of the event scene can be viewed. Taking the **tcp_reset** probe as an example, when a Pod receives a normal message on a certain port, KubeSkoop exporter will capture the following event information:
 
 ```text
 type=TCPRESET_NOSOCK pod=storage-monitor-5775dfdc77-fj767 namespace=kube-system protocol=TCP saddr=100.103.42.233 sport=443 daddr=10.1.17.188 dport=33488 
 ```
 
-事件中的信息如下：
+The information in the event is as follows:
 
-1. type表明出现了一次TCPRESET_NOSOCK类型的事件，这是**tcpreset**探针捕获的一种事件，他表明有访问为止端口的报文被本地发送RST报文拒绝，拒绝的原因是没有根据报文找到相应的socket，通常在NAT失效，如ipvs定时器超时等原因发生后，会伴随这个事件。
-2. pod/namespace是KubeSkoop exporter根据发送报文的网络命名空间，ip地址和网络设备序号进行匹配后关联给事件的Pod元信息。
-3. saddr/sport/daddr/dport是KubeSkoop exporter在内核获取到的异常报文的信息，随着事件的不同，这部分信息也会有差异，例如**net_softirq**探针的事件信息中没有ip地址，取而代之的是中断发生的CPU序号，产生的延迟时长等。
+1. "type" indicates that an event of TCPRESET_NOSOCK type has occurred, which is a type of event captured by the **tcpreset** probe. It indicates that a message accessing a certain port was rejected locally by sending an RST message because there was no corresponding socket found based on the message. This event often occurs when NAT fails, or when the ipvs timer times out.
+2. "pod/namespace" is the Pod metadata associated with the event by KubeSkoop exporter, which is matched based on the network namespace, IP address, and network device number of the sending message.
+3. "saddr/sport/daddr/dport" is the information of the abnormal message obtained by KubeSkoop exporter in the kernel. With different events, this part of the information will also differ. For example, in the event information of the **net_softirq** probe, there is no IP address, instead, there is the CPU number where the interrupt occurred and the duration of the delay caused by it.
 
-对于需要有效的操作系统内核堆栈信息的事件，可以通过配置开关来额外获取操作系统内核的协议栈信息，这会增加一定的消耗，从而获取到更加精准的现象，例如：
+
+For events that require effective operating system kernel stack information, additional protocol stack information of the operating system kernel can be obtained by configuring the switch, which will increase certain costs and obtain more accurate phenomena, for example:
 
 ```text
 type=PACKETLOSS pod=hostNetwork namespace=hostNetwork protocol=TCP saddr=10.1.17.172 sport=6443 daddr=10.1.17.176 dport=43018  stacktrace:skb_release_data+0xA3 __kfree_skb+0xE tcp_recvmsg+0x61D inet_recvmsg+0x58 sock_read_iter+0x92 new_sync_read+0xE8 vfs_read+0x89 ksys_read+0x5A

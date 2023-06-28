@@ -18,7 +18,7 @@ KubeSkoop exporter provides a quick deployment configuration that includes the f
 The following steps show how to quickly deploy KubeSkoop exporter and its observability combination with Prometheus, Grafana, and Loki in a Kubernetes cluster:
 
 ```shell
-kubectl apply -f https://github.com/alibaba/kubeskoop/deploy/skoopbundle.yaml
+kubectl apply -f https://raw.githubusercontent.com/alibaba/kubeskoop/main/deploy/skoopbundle.yaml
 ```
 
 Follow the steps below to confirm the installation is complete and obtain the access entry:

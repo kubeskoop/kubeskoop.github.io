@@ -18,7 +18,7 @@ KubeSkoop exporter提供了一个可以快速部署的配置，包含以下组�
 通过以下步骤，可以在Kubernetes集群中快速部署KubeSkoop exporter及其与Prometheus，Grafana和Loki构成的可观测性组合：
 
 ```shell
-kubectl apply -f https://github.com/alibaba/kubeskoop/deploy/skoopbundle.yaml
+kubectl apply -f https://raw.githubusercontent.com/alibaba/kubeskoop/main/deploy/skoopbundle.yaml
 ```
 
 通过以下步骤，确认安装完成以及获取访问入口：

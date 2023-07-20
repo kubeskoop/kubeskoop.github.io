@@ -17,10 +17,10 @@ The following command line arguments are provided by kubeskoop cli.
 | `--kube-config string`                   | Cluster kubeconfig file. (default `~/.kube/config`)                                                                  |
 | `--network-plugin string`                | Network plugin used in cluster. If not set, will try to auto detect it.                                              |
 | `--proxy-mode string`                    | Proxy mode for kube-proxy. If not set, will try to detect it automatically.                                          |
-| `--format string`                        | Output format of diagnose result, support dot/svg/json. If not set, only print simple path info on console.          |
+| `--format string`                        | Output format of diagnose result, support d2/svg/json. If not set, only print simple path info on console.          |
 | `--http`                                 | Enable an http server to show diagnose result.                                                                       |
 | `--http-address string`                  | Listen address for http server. (default `127.0.0.1:8080`)                                                           |
-| `--output string`                        | Output file name, default is output.dot/svg/json in current work directory.                                          |
+| `--output string`                        | Output file name, default is output.d2/svg/json in current work directory.                                          |
 | `--aliyun-access-key-id string`          | Aliyun access key.                                                                                                   |
 | `--aliyun-access-key-secret string`      | Aliyun access secret.                                                                                                |
 | `--aliyun-security-token string`         | Aliyun security token (optional).                                                                                    |

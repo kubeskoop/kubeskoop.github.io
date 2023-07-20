@@ -17,10 +17,10 @@ sidebar_position: 99
 | `--kube-config string`                   | 集群kubeconfig路径（默认`~/.kube/config`）                                                |
 | `--network-plugin string`                | 集群网络插件。若没有指定，将会尝试自动探测                                                             |
 | `--proxy-mode string`                    | kube-proxy模式。若没有指定，将会尝试自动探测                                                       |
-| `--format string`                        | 结果输出格式，支持dot/svg/json。若没有指定，只会在控制台打印简单链路信息                                        |
+| `--format string`                        | 结果输出格式，支持d2/svg/json。若没有指定，只会在控制台打印简单链路信息                                        |
 | `--http`                                 | 启动HTTP服务器来展示诊断结果                                                                  |
 | `--http-address string`                  | HTTP服务器监听地址（默认`127.0.0.1:8080`）                                                   |
-| `--output string`                        | 输出结果保存文件路径，默认为当前目录下的output.dot/svg/json                                           |
+| `--output string`                        | 输出结果保存文件路径，默认为当前目录下的output.d2/svg/json                                           |
 | `--aliyun-access-key-id string`          | 阿里云access key                                                                     |
 | `--aliyun-access-key-secret string`      | 阿里云access secret                                                                  |
 | `--aliyun-security-token string`         | 阿里云security token（可选）                                                             |

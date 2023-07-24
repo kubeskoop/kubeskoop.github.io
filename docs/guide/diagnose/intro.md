@@ -13,7 +13,7 @@ KubeSkoop connectivity diagnosis provides one-shot diagnose for persistent netwo
 ### Install KubeSkoop command
 Through `go install` to install KubeSkoop CLI：
 ```
-go install github.com/alibaba/kubeskoop/cmd/skoop@latest
+go install github.com/alibaba/kubeskoop/cmd/skoop@main
 ```
 
 ### One-Shot Diagnose

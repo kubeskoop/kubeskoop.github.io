@@ -22,7 +22,7 @@ How to diagnose your kubernetes cluster by KubeSkoop?
 ### Install KubeSkoop command
 Through `go install` to install KubeSkoop cli：
 ```
-go install github.com/alibaba/kubeskoop/cmd/skoop@latest
+go install github.com/alibaba/kubeskoop/cmd/skoop@main
 ```
 ### One-Shot Diagnose
 ```shell

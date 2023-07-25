@@ -22,7 +22,7 @@ sidebar_position: 2
 ### 诊断命令安装
 通过go install来安装KubeSkoop的诊断客户端：
 ```
-go install github.com/alibaba/kubeskoop/cmd/skoop@latest
+go install github.com/alibaba/kubeskoop/cmd/skoop@main
 ```
 
 ### 一键诊断

@@ -1,0 +1,34 @@
+apiVersion: v1
+entries:
+  kubeskoop-exporter:
+  - annotations:
+      category: Analytics
+      licenses: Apache-2.0
+    apiVersion: v1
+    appVersion: 0.1.3
+    created: "2023-07-25T01:38:31.467854253Z"
+    description: Promtheus exporter and kernel tracing for OS metrics in kubernetes,
+      with pluggable metric collectors and kernel eBPF tracers.
+    digest: 78195422629c5b267d3c9925688400e19656d727ccdcb17f30a4b70c64b38408
+    home: https://github.com/alibaba/kubeskoop
+    icon: https://img.shields.io/github/v/tag/alibaba/kubeskoop
+    keywords:
+    - kubeskoop
+    - kubeskoop-exporter
+    - kubernetes
+    - prometheus
+    - eBPF
+    - ebpf
+    - monitoring
+    maintainers:
+    - name: KubeSkoop
+      url: https://kubeskoop.io/
+    name: kubeskoop-exporter
+    sources:
+    - https://github.com/alibaba/kubeskoop
+    - https://kubeskoop.io/
+    type: application
+    urls:
+    - https://github.com/kubeskoop/kubeskoop.github.io/releases/download/kubeskoop-exporter-0.1.3/kubeskoop-exporter-0.1.3.tgz
+    version: 0.1.3
+generated: "2023-07-25T01:38:31.467859153Z"

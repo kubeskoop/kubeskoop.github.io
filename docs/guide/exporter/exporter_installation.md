@@ -42,36 +42,37 @@ kubectl get service -n kubeskoop grafana -o wide
 ## Install using Helm
 
 ```shell
-# Add kubeskoop charts repo
+# Add KubeSkoop charts repo
 helm repo add kubeskoop https://kubeskoop.github.io
 
-# On the first execution, it is necessary to update the Helm repo cache.
+# You need to update helm repo info for the first time.
 helm repo update
 
-# Install kubeskoop exporter
+# Install KubeSkoop exporter.
 helm install kubeskoop-exporter kubeskoop/skoop-exporter
 ```
 
 If you need to debug Helm Charts information, you can install it locally:
 
 ```shell
-# Get the KubeSkoop exporter code.
+# Clone KubeSkoop to local disk.
 git clone https://github.com/alibaba/kubeskoop.git
 
-helm install --set namespace=kube-system skoop-exporter ./kubeskoop/deploy/skoop-exporter-0.1.0.tgz --debug
+# Install the helm chart locally.
+helm install --set namespace=kube-system skoop-exporter ./kubeskoop/deploy/skoop-exporter-0.2.0.tgz --debug
 ```
 
 KubeSkoop exporter is deployed in the cluster as a DaemonSet and can be verified if it is working properly in the following ways:
 
 ```shell
-# Check the running status of kubeskoop exporter.
+# Get pod running status of KubeSkoop exporter
 kubectl get pod -n kubeskoop -l app=kubeskoop-exporter -o wide
 
-# Check the running status of the Probe collector.
+# After pods are runing, you can get running status of probes through API server.
 kubectl get --raw /api/v1/namespaces/kubeskoop/pods/{{kubeskoop-exporter pod name}}:9102/proxy/status |jq .
 
 
-# If you have direct access to the kubeskoop exporter instance, you can also directly check the status of the Probe's operation.
+# You can also curl it if you have direct access to the pod IP.
 curl {{kubeskoop-exporter pod ip}}:9102/status |jq .
 ```
 
@@ -79,22 +80,30 @@ curl {{kubeskoop-exporter pod ip}}:9102/status |jq .
 
 The parameters that can be configured when installing KubeSkoop exporter through Helm are as follows:
 
-| Setting                            | Description                                                                                                          | Default                            |
-|------------------------------------|----------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| name                               | kubeskoop-exporter daemonset name                                                                                    | `kubeskoop-exporter`               |
-| namespace                          | The namespace of kubeskoop-exporter workload                                                                         | `kubeskoop`                        |
-| debugmode                          | Enable the debugmode of kubeskoop-exporter, with debug interface, debug log level and pprof support                  | `false`                            |
-| appName                            | Pod  `app` label                                                                                                     | `kubeskoop-exporter`               |
-| runtimeEndpoint                    | CRI runtime endpoint socket, you can use  `crictl info |awk -F":" '/containerdEndpoint/ {print $2'` to obtain it     | `/run/containerd/containerd.sock`  |
-| config.enableEventServer           | Enable the event server                                                                                              | `false`                            |
-| config.enableMetricServer          | Enable the metric server                                                                                             | `true`                             |
-| config.remoteLokiAddress           | Set the remote grafana loki endpoint to push events                                                                  | ``                                 |
-| config.metricLabelVerbose          | Deliever the detail information of pod in metric label, such as app label, ip                                        | `false`                            |
-| config.metricServerPort            | Metric server port, provide HTTP service                                                                             | 9102                               |
-| config.eventServerPort             | Event  sever port, provide GRPC service                                                                              | 19102                              |
-| config.metricProbes                | Metric probes to enable                                                                                              | refer to the probe guide           |
-| config.eventProbes                 | Event probes to enable                                                                                               | refer to the probe guide           |
-| config.metricCacheInterval         | Metric cache interval                                                                                                | 15                                 |
+| Setting                       | Description                                                  | Default                                         |
+| ----------------------------- | ------------------------------------------------------------ | ----------------------------------------------- |
+| name                          | DaemonSet name of KubeSkoop exporter.                        | `kubeskoop-exporter`                            |
+| debugmode                     | Enable `debugmode` for kubeskoop-exporter, with debug interface, debug log level and pprof support. | `false`                                         |
+| appName                       | Pod `app` label.                                             | `kubeskoop-exporter`                            |
+| runtimeEndpoint               | CRI runtime endpoint socket, you can use  `crictl info | awk -F":" '/containerdEndpoint/ {print $2'` to obtain it. | `/run/containerd/containerd.sock`               |
+| image.repository              | Image repository for KubeSkoop exporter container.           | `kubeskoop/kubeskoop`                           |
+| image.tag                     | Image tag for KubeSkoop exporter container.                  | `latest`                                        |
+| image.imagePullPolicy         | `imagePullPolicy` for KubeSkoop exporter container.          | `Always`                                        |
+| initContainer.enabled         | Enable `btfhack` as initContainer to automate discover btf file when kernel does not carry btf information itself. | `true`                                          |
+| initContainer.repository      | Image repository for `btfhack` container.                    | `registry.cn-hangzhou.aliyuncs.com/acs/btfhack` |
+| initContainer.tag             | Image tag for `btfhack` container.                           | `latest`                                        |
+| initContainer.imagePullPolicy | `imagePullPolicy` for `btfhack` container.                   | `Always`                                        |
+| config.enableEventServer      | Enable the event server and loki.                            | `false`                                         |
+| config.enableMetricServer     | Enable the metric server.                                    | `true`                                          |
+| config.remoteLokiAddress      | Set the remote grafana loki endpoint to push events.         | `registry.cn-hangzhou.aliyuncs.com/acs/btfhack` |
+| config.metricLabelVerbose     | Deliever the detail information of pod in metric label, such as app label, ip | `false`                                         |
+| config.metricServerPort       | Metric server port, provide HTTP service.                    | 9102                                            |
+| config.eventServerPort        | Event sever port, provide GRPC service.                      | 19102                                           |
+| config.metricProbes           | Metric probes to enable.                                     | Refer to the probe guide.                       |
+| config.eventProbes            | Event probes to enable.                                      | Refer to the probe guide.                       |
+| config.metricCacheInterval    | Metric cache interval.                                       | 15                                              |
+| expose_labels                 | Extra labels to be exposed.                                  | See `values.yaml`.                              |
+
 
 
 ### Verification after installation completion

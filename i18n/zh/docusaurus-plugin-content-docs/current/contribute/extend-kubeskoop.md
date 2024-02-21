@@ -6,7 +6,7 @@ sidebar_position: 1
 
 欢迎您为`KubeSkoop`项目做出贡献！
 
-项目分为两个部分：KubeSkoop诊断和**KubeSkoop深度网络监控**。你可以在[代码概览](code-overview.md)中对项目结构有一个大致的了解。
+项目分为两个部分：KubeSkoop诊断和KubeSkoop深度网络监控。你可以在[代码概览](code-overview.md)中对项目结构有一个大致的了解。
 
 ## 扩展KubeSkoop连通性诊断
 

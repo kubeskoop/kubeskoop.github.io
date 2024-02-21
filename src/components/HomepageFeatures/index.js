@@ -21,7 +21,7 @@ const Intro = {
 const FeatureList = [
   {
     title: <Translate>One-Shot Diagnose</Translate>,
-    img: 'https://img.alicdn.com/imgextra/i3/O1CN01vMOfPG1tMIRxwqAlc_!!6000000005887-2-tps-3550-2104.png',
+    img: 'img/diagnosis_result.png',
     description: (
       <>
         <ul>
@@ -46,7 +46,7 @@ const FeatureList = [
   },
   {
     title: <Translate>In-Depth Kernel Monitor</Translate>,
-    img: 'https://img.alicdn.com/imgextra/i2/O1CN010MAn6E1lFrxvTQITj_!!6000000004790-2-tps-1266-854.png',
+    img: 'img/monitoring.png',
     description: (
       <>
         <ul>
@@ -71,7 +71,7 @@ const FeatureList = [
   },
   {
     title: <Translate>Network Anomaly Event</Translate>,
-    img: 'https://img.alicdn.com/imgextra/i2/O1CN01W2ZdYx1av7s4BvBMq_!!6000000003391-2-tps-1266-729.png',
+    img: 'img/events.png',
     description: (
       <>
         <ul>

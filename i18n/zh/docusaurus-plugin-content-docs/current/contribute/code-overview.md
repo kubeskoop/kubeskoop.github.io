@@ -4,13 +4,13 @@ sidebar_position: 2
 
 # 代码概览
 
-本节是对KubeSkoop diagnosis与KubeSkoop exporter的目录结构的大致介绍。
+本节是对KubeSkoop目录结构的大致介绍。
 
 ## 整体概览
 
 ### bpf
 
-Exporter所使用的eBPF程序源码。
+KubeSkoop所使用的eBPF程序源码。
 
 ### cmd
 

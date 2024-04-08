@@ -328,7 +328,10 @@
   "What is KubeSkoop?": {
     "message": "什么是 KubeSkoop?"
   },
-  "KubeSkoop Tutorial": {
-    "message": "KubeSkoop 入门"
+  "Quick Start": {
+    "message": "快速上手"
+  },
+  "Diagnose your kubernetes network": {
+    "message": "诊断你的Kubernetes网络"
   }
 }

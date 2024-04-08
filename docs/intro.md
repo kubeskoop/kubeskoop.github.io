@@ -14,7 +14,7 @@ By analyzing link configurations and backtracking historical network anomalies, 
 
 ![overview](/img/kubeskoop_features.jpg)
 
-You can view [Quick Start](getting-started/quick-start.md) to get started with KubeSkoop, or [Installation](getting-started/installation.md) to deploy a production-ready KubeSkoop instance.
+You can view [Quick Start](quick-start.md) to get started with KubeSkoop, or [Installation](getting-started/installation.md) to deploy a production-ready KubeSkoop instance.
 
 ## Key Features
 

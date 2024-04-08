@@ -14,7 +14,7 @@ KubeSkoop旨在帮助用户快速诊断和排查容器网络疑难问题，并�
 
 ![overview](/img/kubeskoop_features.jpg)
 
-您可以从此文档[快速开始](getting-started/quick-start.md)并上手体验KubeSkoop的功能。或参考[安装](getting-started/installation.md)来部署生产可用的KubeSkoop实例。
+您可以从此文档[快速开始](quick-start.md)并上手体验KubeSkoop的功能。或参考[安装](getting-started/installation.md)来部署生产可用的KubeSkoop实例。
 
 ## 关键特性
 

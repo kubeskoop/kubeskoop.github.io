@@ -54,7 +54,7 @@ curl {{kubeskoop-exporter的pod ip}}:9102/status |jq .
 | config.enableEventServer      | Enable the event server and loki.                            | `false`                                         |
 | config.enableMetricServer     | Enable the metric server.                                    | `true`                                          |
 | config.remoteLokiAddress      | Set the remote grafana loki endpoint to push events.         | `registry.cn-hangzhou.aliyuncs.com/acs/btfhack` |
-| config.metricLabelVerbose     | Deliever the detail information of pod in metric label, such as app label, ip | `false`                                         |
+| config.metricLabelVerbose     | Deliver the detail information of pod in metric label, such as app label, ip | `false`                                         |
 | config.metricServerPort       | Metric server port, provide HTTP service.                    | 9102                                            |
 | config.eventServerPort        | Event sever port, provide GRPC service.                      | 19102                                           |
 | config.metricProbes           | Metric probes to enable.                                     | Refer to the probe guide.                       |

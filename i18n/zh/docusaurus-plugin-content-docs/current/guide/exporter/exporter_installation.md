@@ -72,7 +72,7 @@ Skoop-exporter以DaemonSet方式部署在集群中，可以通过以下方式验
 
 ```shell
 # 查看Skoop exporter的运行状态
-kubectl get pod -n skoop -l app=kubeskoop-exporter -o wide
+kubectl get pod -n kubeskoop -l app=kubeskoop-exporter -o wide
 
 # 获取到pod的信息后，可以通过apiserver查看Probe采集探针的运行状态
 kubectl get --raw /api/v1/namespaces/{{skoop-exporter的pod namespace}}/pods/{{skoop-exporter的pod name}}:9102/proxy/status |jq .

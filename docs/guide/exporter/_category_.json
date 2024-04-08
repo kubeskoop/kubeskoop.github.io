@@ -1,9 +1,0 @@
-{
-    "label": "System monitoring",
-    "position": 2,
-    "link": {
-      "type": "generated-index",
-      "description": "system monitoring via metrics and event logs."
-    }
-  }
-  

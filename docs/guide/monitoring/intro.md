@@ -41,7 +41,7 @@ KubeSkoop exporter provides adaptation for Kubernetes network monitoring functio
 - Configuring Grafana Loki to receive event push from KubeSkoop exporter and visualizing it using Grafana.
 - Using the KubeSkoop inspector command-line tool to observe monitoring information.
 
-Regarding how to visualize monitoring data, please refer to**[KubeSkoop exporter visualization](exporter-visualization-guide.md)**
+Regarding how to visualize monitoring data, please refer to **[visualization](visualization.md)**
 
 ## Metrics
 

@@ -21,7 +21,7 @@ const Intro = {
 const FeatureList = [
   {
     title: <Translate>One-Shot Diagnose</Translate>,
-    img: 'img/diagnosis_result.png',
+    img: 'img/diagnosis_result.jpg',
     description: (
       <>
         <ul>
@@ -46,7 +46,7 @@ const FeatureList = [
   },
   {
     title: <Translate>In-Depth Kernel Monitor</Translate>,
-    img: 'img/monitoring.png',
+    img: 'img/monitoring.jpg',
     description: (
       <>
         <ul>
@@ -71,7 +71,7 @@ const FeatureList = [
   },
   {
     title: <Translate>Network Anomaly Event</Translate>,
-    img: 'img/events.png',
+    img: 'img/events.jpg',
     description: (
       <>
         <ul>

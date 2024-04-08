@@ -47,7 +47,7 @@ kubectl apply -f https://raw.githubusercontent.com/alibaba/kubeskoop/main/deploy
 
 ```shell
 # 查看Skoop exporter的运行状态
-kubectl get pod -n kubeskoop -l app=skoop-exporter -o wide
+kubectl get pod -n kubeskoop -l app=kubeskoop-exporter -o wide
 # 查看Probe采集探针的运行状态
 kubectl get --raw /api/v1/namespaces/kubeskoop/pods/skoop-exporter-t4d9m:9102/proxy/status |jq .
 # 获取Prometheus服务的入口

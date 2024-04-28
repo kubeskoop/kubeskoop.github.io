@@ -82,7 +82,7 @@ For more information about the probes, please see [the documentation](../referen
 
 ## Configure Prometheus and Loki Endpoint
 
-Some features (e.g., network graph, anomaly events) of [Web Console](.../guide/web-console.md) relies on Prometheus and Loki.
+Some features (e.g., network graph, anomaly events) of [Web Console](../guide/web-console.md) relies on Prometheus and Loki.
 You need to provide the endpoint for the Prometheus and Loki services during installation.
 
 :::tip

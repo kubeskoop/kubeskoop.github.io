@@ -12,7 +12,7 @@ Execute the following command to add the KubeSkoop repository to Helm and instal
 
 ```shell
 # Add kubeskoop repo
-helm repo add kubeskoop https://kubeskoop.io/kubeskoop/
+helm repo add kubeskoop https://kubeskoop.io/
 # Upgrade helm repo
 helm repo update
 # Install kubeskoop

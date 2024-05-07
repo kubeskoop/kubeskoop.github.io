@@ -12,7 +12,7 @@ sidebar_position: 2
 
 ```shell
 # 添加kubeskoop repo
-helm repo add kubeskoop https://kubeskoop.io/kubeskoop/
+helm repo add kubeskoop https://kubeskoop.io/
 # 更新helm repo
 helm repo update
 # 安装kubeskoop

@@ -92,21 +92,16 @@ metadata:
 data:
   config.yaml: |-
     debugmode: true
-    metric_config:
-      interval: 15
-      port: 9102
+    port: 9102
+    metrics:
       probes:
-      - netdev
-      - io
-      - sock
-      - tcpsummary
-      - tcp
-      - tcpext
-      - udp
-    event_config:
-      port: 19102
-      loki_enable: false
-      loki_address: loki-service
+      - name: netdev
+      - name: io
+      - name: sock
+      - name: tcpsummary
+      - name: tcp
+      - name: tcpext
+      - name: udp
 ```
 
 这个文件将会在`default`命名空间下创建名为`nginx-with-exporter`的Deployment，以及ConfigMap`kubeskoop-config`用于配置。

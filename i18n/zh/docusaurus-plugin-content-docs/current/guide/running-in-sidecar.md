@@ -50,7 +50,7 @@ spec:
         - containerPort: 80
       # add KubeSkoop sidecar container
       - name: exporter
-        image: kubeskoop/kubeskoop:latest
+        image: kubeskoop/agent:latest
         imagePullPolicy: Always
         command:
           - /bin/inspector

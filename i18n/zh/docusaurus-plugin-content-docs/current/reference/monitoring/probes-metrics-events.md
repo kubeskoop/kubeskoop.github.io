@@ -191,6 +191,8 @@
 | kubeskoop_rdma_mlx5_port_xmit_packets     | rdma           | Mellanox mlx5端口发送数据包总数                       |
 | kubeskoop_rdma_mlx5_port_rcv_errors       | rdma           | Mellanox mlx5端口接收错误数据包数                     |
 | kubeskoop_rdma_mlx5_port_xmit_discards    | rdma           | Mellanox mlx5端口发送丢弃数据包数                     |
+| kubeskoop_rdma_mlx5_VL15_dropped          | rdma           | Mellanox mlx5 VL15管理数据包因资源不足被丢弃数         |
+| kubeskoop_rdma_mlx5_out_of_buffer         | rdma           | Mellanox mlx5因QP缺少WQE导致的丢包数                  |
 
 ## 事件
 

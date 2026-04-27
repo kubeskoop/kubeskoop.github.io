@@ -31,6 +31,7 @@ Probes supported by KubeSkoop are listed below.
 | virtcmdlatency | Trace latency in virtio device                            | Metrics, Events | eBPF        | High     |
 | net_softirq    | Trace latency in software interrupt                       | Metrics, Events | eBPF        | High     |
 | tcpretrans     | Trace TCP packet retransmission                           | Metrics, Events | eBPF        | Low      |
+| rdma           | Statistics of RDMA devices (eRDMA and Mellanox mlx5)      | Metrics         | netlink, sysfs | Low   |
 
 ## Metrics
 
@@ -167,6 +168,26 @@ Theses labels are present on all metrics.
 | kubeskoop_softirq_excuteslow100ms         | net_softirq    | Softirq execute latency exceeds 100ms                             |
 | kubeskoop_flow_bytes                      | flow           | Bytes sent connection flow                                        |
 | kubeskoop_flow_packets                    | flow           | Packets sent of connection flow                                   |
+| kubeskoop_rdma_qp                         | rdma           | RDMA queue pair count per device                                  |
+| kubeskoop_rdma_mr                         | rdma           | RDMA memory region count per device                               |
+| kubeskoop_rdma_cq                         | rdma           | RDMA completion queue count per device                            |
+| kubeskoop_rdma_pd                         | rdma           | RDMA protection domain count per device                           |
+| kubeskoop_rdma_erdma_hw_rx_bytes_cnt      | rdma           | eRDMA hardware RX bytes total                                     |
+| kubeskoop_rdma_erdma_hw_tx_bytes_cnt      | rdma           | eRDMA hardware TX bytes total                                     |
+| kubeskoop_rdma_erdma_hw_rx_packets_cnt    | rdma           | eRDMA hardware RX packets total                                   |
+| kubeskoop_rdma_erdma_hw_tx_packets_cnt    | rdma           | eRDMA hardware TX packets total                                   |
+| kubeskoop_rdma_erdma_hw_bps_limit_drop_cnt   | rdma        | eRDMA packets dropped due to TX bandwidth limit                   |
+| kubeskoop_rdma_erdma_hw_pps_limit_drop_cnt   | rdma        | eRDMA packets dropped due to TX PPS limit                         |
+| kubeskoop_rdma_erdma_hw_rx_bps_limit_drop_cnt | rdma       | eRDMA packets dropped due to RX bandwidth limit                   |
+| kubeskoop_rdma_erdma_hw_rx_pps_limit_drop_cnt | rdma       | eRDMA packets dropped due to RX PPS limit                         |
+| kubeskoop_rdma_mlx5_port_rcv_data         | rdma           | Mellanox mlx5 port received data (in double words, multiply by 4 for bytes) |
+| kubeskoop_rdma_mlx5_port_xmit_data        | rdma           | Mellanox mlx5 port transmitted data (in double words, multiply by 4 for bytes) |
+| kubeskoop_rdma_mlx5_port_rcv_packets      | rdma           | Mellanox mlx5 port received packets total                         |
+| kubeskoop_rdma_mlx5_port_xmit_packets     | rdma           | Mellanox mlx5 port transmitted packets total                      |
+| kubeskoop_rdma_mlx5_port_rcv_errors       | rdma           | Mellanox mlx5 port received packets containing errors             |
+| kubeskoop_rdma_mlx5_port_xmit_discards    | rdma           | Mellanox mlx5 port outbound packets discarded                     |
+| kubeskoop_rdma_mlx5_VL15_dropped          | rdma           | Mellanox mlx5 incoming VL15 (management) packets dropped due to resource limitations |
+| kubeskoop_rdma_mlx5_out_of_buffer         | rdma           | Mellanox mlx5 drops due to lack of WQE for the associated QPs    |
 
 ## Events
 

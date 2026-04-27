@@ -31,6 +31,7 @@
 | conntrack      | conntrack统计            | 指标      | netlink | 低   |
 | biolatency     | Block IO延迟跟踪         | 事件      | eBPF    | 中   |
 | tcpretrans     | TCP包重传追踪            | 指标、事件 | eBPF    | 低   |
+| rdma           | RDMA设备统计（eRDMA和Mellanox mlx5） | 指标 | netlink、sysfs | 低 |
 
 
 ## 指标
@@ -172,6 +173,24 @@
 | kubeskoop_softirq_excuteslow100ms         | net_softirq    | Softirq执行延迟超过100ms                              |
 | kubeskoop_flow_bytes                      | flow           | 连接发送字节数                                        |
 | kubeskoop_flow_packets                    | flow           | 连接发送包数                                          |
+| kubeskoop_rdma_qp                         | rdma           | 每设备RDMA队列对（QP）数量                            |
+| kubeskoop_rdma_mr                         | rdma           | 每设备RDMA内存区域（MR）数量                          |
+| kubeskoop_rdma_cq                         | rdma           | 每设备RDMA完成队列（CQ）数量                          |
+| kubeskoop_rdma_pd                         | rdma           | 每设备RDMA保护域（PD）数量                            |
+| kubeskoop_rdma_erdma_hw_rx_bytes_cnt      | rdma           | eRDMA硬件接收字节总数                                 |
+| kubeskoop_rdma_erdma_hw_tx_bytes_cnt      | rdma           | eRDMA硬件发送字节总数                                 |
+| kubeskoop_rdma_erdma_hw_rx_packets_cnt    | rdma           | eRDMA硬件接收数据包总数                               |
+| kubeskoop_rdma_erdma_hw_tx_packets_cnt    | rdma           | eRDMA硬件发送数据包总数                               |
+| kubeskoop_rdma_erdma_hw_bps_limit_drop_cnt   | rdma        | eRDMA因发送带宽限制丢弃的数据包数                     |
+| kubeskoop_rdma_erdma_hw_pps_limit_drop_cnt   | rdma        | eRDMA因发送PPS限制丢弃的数据包数                      |
+| kubeskoop_rdma_erdma_hw_rx_bps_limit_drop_cnt | rdma       | eRDMA因接收带宽限制丢弃的数据包数                     |
+| kubeskoop_rdma_erdma_hw_rx_pps_limit_drop_cnt | rdma       | eRDMA因接收PPS限制丢弃的数据包数                      |
+| kubeskoop_rdma_mlx5_port_rcv_data         | rdma           | Mellanox mlx5端口接收数据量（双字，乘以4得字节数）    |
+| kubeskoop_rdma_mlx5_port_xmit_data        | rdma           | Mellanox mlx5端口发送数据量（双字，乘以4得字节数）    |
+| kubeskoop_rdma_mlx5_port_rcv_packets      | rdma           | Mellanox mlx5端口接收数据包总数                       |
+| kubeskoop_rdma_mlx5_port_xmit_packets     | rdma           | Mellanox mlx5端口发送数据包总数                       |
+| kubeskoop_rdma_mlx5_port_rcv_errors       | rdma           | Mellanox mlx5端口接收错误数据包数                     |
+| kubeskoop_rdma_mlx5_port_xmit_discards    | rdma           | Mellanox mlx5端口发送丢弃数据包数                     |
 
 ## 事件
 
